@@ -117,7 +117,7 @@ Transform:
   m_GameObject: {fileID: 4893102735792572327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.97, y: 0.96, z: 0}
+  m_LocalPosition: {x: -2.47, y: 0.28, z: 0}
   m_LocalScale: {x: 0.5228999, y: 0.43995422, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1069,15 +1069,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6509580482217429218, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -454.41
+      value: -453.67
       objectReference: {fileID: 0}
     - target: {fileID: 6509580482217429218, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -530.1173
+      value: -530.5
       objectReference: {fileID: 0}
     - target: {fileID: 6509580482217429218, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.003
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6509580482217429218, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1175,6 +1175,14 @@ PrefabInstance:
     - target: {fileID: 196900386346834583, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: m_Name
       value: Node_Sci
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
+      propertyPath: nodeRole
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
+      propertyPath: deathReason
+      value: "\u0E2B\u0E21\u0E32\u0E44\u0E25\u0E48\u0E01\u0E31\u0E14 \u0E15\u0E49\u0E2D\u0E07\u0E44\u0E1B\u0E09\u0E35\u0E14\u0E22\u0E32\u0E17\u0E35\u0E48\u0E42\u0E23\u0E07\u0E1E\u0E22\u0E32\u0E1A\u0E32\u0E25"
       objectReference: {fileID: 0}
     - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: buildingName

@@ -1829,7 +1829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: connectedPaths.Array.data[0].distanceKm
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: connectedPaths.Array.data[0].targetNode

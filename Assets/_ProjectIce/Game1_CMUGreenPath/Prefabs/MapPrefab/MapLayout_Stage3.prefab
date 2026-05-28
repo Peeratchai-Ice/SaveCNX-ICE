@@ -208,8 +208,8 @@ Transform:
   m_GameObject: {fileID: 4893102735792572327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.18, y: -19.39, z: 0}
-  m_LocalScale: {x: 0.48746148, y: 0.43995422, z: 1}
+  m_LocalPosition: {x: 20.2228, y: -19.39, z: 0}
+  m_LocalScale: {x: 0.49618703, y: 0.43995422, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 253182441788158642}
@@ -361,6 +361,10 @@ PrefabInstance:
     - target: {fileID: 196900386346834583, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: m_Name
       value: Node_ClockTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
+      propertyPath: buildingName
+      value: "\u0E2B\u0E2D\u0E19\u0E32\u0E2C\u0E34\u0E01\u0E32"
       objectReference: {fileID: 0}
     - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: connectedPaths.Array.size
@@ -1654,7 +1658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: connectedPaths.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: connectedPaths.Array.data[0].distanceKm
@@ -1664,6 +1668,14 @@ PrefabInstance:
       propertyPath: connectedPaths.Array.data[0].targetNode
       value: 
       objectReference: {fileID: 1340590073249596945}
+    - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
+      propertyPath: connectedPaths.Array.data[1].distanceKm
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
+      propertyPath: connectedPaths.Array.data[1].targetNode
+      value: 
+      objectReference: {fileID: 3969226283686003003}
     - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: connectedPaths.Array.data[0].carbonGrams
       value: 900
@@ -1694,6 +1706,30 @@ PrefabInstance:
       objectReference: {fileID: -564092697557116123, guid: bb6c2544fbf9191408ee8eec8bb9b929, type: 3}
     - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: connectedPaths.Array.data[0].vehicleName
+      value: "\u0E02\u0E31\u0E1A\u0E23\u0E16\u0E22\u0E19\u0E15\u0E4C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
+      propertyPath: connectedPaths.Array.data[1].carbonGrams
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
+      propertyPath: connectedPaths.Array.data[1].pathColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
+      propertyPath: connectedPaths.Array.data[1].pathColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
+      propertyPath: connectedPaths.Array.data[1].timeMinutes
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
+      propertyPath: connectedPaths.Array.data[1].vehicleIcon
+      value: 
+      objectReference: {fileID: -564092697557116123, guid: bb6c2544fbf9191408ee8eec8bb9b929, type: 3}
+    - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
+      propertyPath: connectedPaths.Array.data[1].vehicleName
       value: "\u0E02\u0E31\u0E1A\u0E23\u0E16\u0E22\u0E19\u0E15\u0E4C"
       objectReference: {fileID: 0}
     - target: {fileID: 5276249032248928408, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
@@ -1815,7 +1851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: buildingName
-      value: Camp
+      value: "\u0E2B\u0E2D\u0E1E\u0E31\u0E01"
       objectReference: {fileID: 0}
     - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: friendGameObject

@@ -8,8 +8,14 @@ public class PathRunner : MonoBehaviour
     public BuildingNode startNode;
     public List<PathData> plannedRoute = new List<PathData>(); 
     private LineRenderer pathLine;
-    
-    public float visualSpeedMultiplier = 10f; 
+
+    [Header("Movement Settings (ตั้งค่าการเดิน)")]
+    // ✨ ช่องใหม่: กำหนดความเร็วคงที่ (ยิ่งค่ายิ่งเยอะ ยิ่งวิ่งเร็ว)
+    public float constantMoveSpeed = 15f; 
+
+    [Header("Line Settings (ตั้งค่าเส้นทาง)")]
+    // ✨ ช่องใหม่: จิ้มเลือกสีเส้นทางที่ลากบนแผนที่ได้เลย
+    public Color overridePathColor = Color.magenta; 
     public float arrowScrollSpeed = -2f; 
 
     [Header("Follower Settings")]
@@ -64,7 +70,8 @@ public class PathRunner : MonoBehaviour
         GradientColorKey[] colorKeys = new GradientColorKey[plannedRoute.Count + 1];
         GradientAlphaKey[] alphaKeys = new GradientAlphaKey[2] { new GradientAlphaKey(1f, 0f), new GradientAlphaKey(1f, 1f) };
 
-        colorKeys[0] = new GradientColorKey(plannedRoute[0].pathColor, 0f);
+        // ✨ บังคับใช้สีที่ตั้งไว้ใน overridePathColor สีเดียวทั้งเส้น
+        colorKeys[0] = new GradientColorKey(overridePathColor, 0f);
 
         for (int i = 0; i < plannedRoute.Count; i++)
         {
@@ -72,7 +79,7 @@ public class PathRunner : MonoBehaviour
             {
                 pathLine.SetPosition(i + 1, plannedRoute[i].targetNode.transform.position);
                 float time = (float)(i + 1) / plannedRoute.Count;
-                colorKeys[i + 1] = new GradientColorKey(plannedRoute[i].pathColor, time);
+                colorKeys[i + 1] = new GradientColorKey(overridePathColor, time);
             }
         }
 
@@ -90,8 +97,6 @@ public class PathRunner : MonoBehaviour
     {
         bool hasPickedUpFriend = false;
         BuildingNode requiredPickupNode = null;
-        
-        // ✨ ตัวแปรใหม่: เก็บประวัติว่าเหยียบกับดักไหม
         bool hitDeathNode = false;
         string deathReasonMsg = "";
 
@@ -112,8 +117,9 @@ public class PathRunner : MonoBehaviour
             if (path == null || path.targetNode == null) continue; 
 
             BuildingNode target = path.targetNode;
-            float moveSpeed = (path.distanceKm / (path.timeMinutes + 0.1f)) * visualSpeedMultiplier;
-            if (moveSpeed <= 0.5f) moveSpeed = 5f;
+            
+            // ✨ ใช้ความเร็วคงที่เสมอ (ตัดสมการเวลาและระยะทางทิ้งไปเลย)
+            float moveSpeed = constantMoveSpeed;
 
             while ((Vector2)transform.position != (Vector2)target.transform.position)
             {
@@ -121,7 +127,6 @@ public class PathRunner : MonoBehaviour
                 yield return null; 
             }
 
-            // ✨ ถ้าเหยียบจุดตาย จะบันทึกไว้ แต่ "ไม่หยุดวิ่ง" ปล่อยให้วิ่งจนจบ
             if (target.nodeRole == BuildingNode.NodeRole.DeathNode && !hitDeathNode)
             {
                 hitDeathNode = true;
@@ -145,7 +150,6 @@ public class PathRunner : MonoBehaviour
 
             if (RouteEvaluator.Instance != null && startNode != null && finalNode != null)
             {
-                // ✨ ส่งข้อมูลทั้งเรื่องลืมเพื่อน และเรื่องเหยียบกับดัก ไปหักคะแนน
                 RouteEvaluator.Instance.EvaluatePlayerRoute(startNode, finalNode, plannedRoute, hasPickedUpFriend, missReason, hitDeathNode, deathReasonMsg);
             }
         }
