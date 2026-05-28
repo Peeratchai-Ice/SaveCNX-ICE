@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4824199689972055271}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.13233, y: 2.53966, z: 0}
+  m_LocalPosition: {x: 929.9171, y: 654.6874, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 292d577fea6a30c4db1e45b681705e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PathRunner
-  plannedRoute: []
-  timeSpeedMultiplier: 15
   startNode: {fileID: 0}
+  plannedRoute: []
+  visualSpeedMultiplier: 10
+  arrowScrollSpeed: -2

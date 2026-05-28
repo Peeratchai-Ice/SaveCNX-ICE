@@ -30,7 +30,6 @@ public class PlanningUI : MonoBehaviour
             {
                 if (hoveredNode == currentPos)
                 {
-                    // 🌟 เพิ่มคำว่า 'ตำแหน่งปัจจุบัน'
                     TooltipManager.Instance.ShowTooltip($"ตำแหน่ง: <color=#FFD166><b>{hoveredNode.buildingName}</b></color>\n<size=85%><color=#64DFDF>[ คุณอยู่ที่นี่ ]</color></size>");
                 }
                 else
@@ -41,7 +40,7 @@ public class PlanningUI : MonoBehaviour
                     {
                         string vehicleColorHex = ColorUtility.ToHtmlStringRGB(path.pathColor);
                         
-                        // 🌟 เพิ่มบรรทัด 'มุ่งหน้าไป' ให้แสดงชื่อตึกด้านบนสุด
+                        // ✨ แก้กลับเป็น "นาที"
                         TooltipManager.Instance.ShowTooltip(
                             $"มุ่งหน้าไป: <color=#FFD166><b>{hoveredNode.buildingName}</b></color>\n" +
                             $"<size=90%>พาหนะ: <color=#{vehicleColorHex}><b>{path.vehicleName}</b></color>\n" +
@@ -53,7 +52,6 @@ public class PlanningUI : MonoBehaviour
                     }
                     else
                     {
-                        // 🌟 เพิ่มคำว่า 'เป้าหมาย' สำหรับตึกที่ไปไม่ได้
                         TooltipManager.Instance.ShowTooltip($"เป้าหมาย: <color=#FFD166><b>{hoveredNode.buildingName}</b></color>\n<size=85%><color=#FF595E>[ ไม่มีถนนเชื่อมจากจุดปัจจุบัน ]</color></size>");
                     }
                 }
@@ -93,7 +91,8 @@ public class PlanningUI : MonoBehaviour
         pathRunner.AddSegmentToPlan(validPath);
         currentNode = targetNode; 
 
-        if (currentNode.isGoalNode && goButton != null) goButton.SetActive(true); 
+        if (currentNode.nodeRole == BuildingNode.NodeRole.EndNode && goButton != null) 
+            goButton.SetActive(true); 
         
         UpdateSummaryStats(); 
     }
@@ -104,7 +103,8 @@ public class PlanningUI : MonoBehaviour
         {
             currentNode = pathRunner.UndoLastSegment();
 
-            if (!currentNode.isGoalNode && goButton != null) goButton.SetActive(false);
+            if (currentNode.nodeRole != BuildingNode.NodeRole.EndNode && goButton != null) 
+                goButton.SetActive(false);
             
             UpdateSummaryStats(); 
         }
@@ -118,7 +118,7 @@ public class PlanningUI : MonoBehaviour
 
         if (stepCount == 0)
         {
-            totalStatsText.text = "<b>เส้นทางของคุณ</b>\nยังไม่ได้เลือกจุดแวะ\n<size=80%><color=#FFD166>คลิกซ้ายเพื่อเดิน | คลิกขวาเพื่อย้อน</color></size>";
+            totalStatsText.text = "<b>เส้นทางของคุณ</b>\nยังไม่ได้เลือกจุดแวะ";
             return;
         }
 
@@ -131,11 +131,11 @@ public class PlanningUI : MonoBehaviour
             totalDist += path.distanceKm;
         }
 
+        // ✨ แก้กลับเป็น "นาที"
         totalStatsText.text = $"ผ่านจุดแวะ: <b>{stepCount}</b> จุด\n" +
                               $"รวมระยะทาง: <b>{totalDist:F1}</b> กม.\n" +
                               $"เวลารวม: <b>{totalTime}</b> นาที\n" +
-                              $"คาร์บอนรวม: <b>{totalCarbon}</b> gCO2\n" +
-                              $"<size=80%><color=#FFD166>คลิกขวาเพื่อย้อนกลับ</color></size>";
+                              $"คาร์บอนรวม: <b>{totalCarbon}</b> gCO2\n";
     }
 
     public void OnClickGo()

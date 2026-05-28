@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_ProjectIce/Game2_TrashBusters/Scenes 1/Level1_Gravity.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/_ProjectIce/Game1_CMUGreenPath/Scenes/Stage1_CMU_Map.unity
+    guid: 4897453c1832a3b489b8c78624a2dc01
+  - enabled: 1
+    path: Assets/_ProjectIce/Game1_CMUGreenPath/Scenes/Stage2_CMU_Map.unity
+    guid: 130f6e2c37afb9d478d0b9acaa5f7dfa
+  - enabled: 1
+    path: Assets/_ProjectIce/Game1_CMUGreenPath/Scenes/Stage3_CMU_Map.unity
+    guid: e0acfa184cf81d84ab1f2b3a79639b87
+  - enabled: 1
+    path: Assets/_ProjectIce/Game1_CMUGreenPath/Scenes/Stage4_CMU_Map.unity
+    guid: 87f267c799a63884089dc6d6efd97925
+  - enabled: 1
+    path: Assets/_ProjectIce/Game1_CMUGreenPath/Scenes/Stage5_CMU_Map.unity
+    guid: 1af26c2c9e1a1ab49ab73f80f9d55a72
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
