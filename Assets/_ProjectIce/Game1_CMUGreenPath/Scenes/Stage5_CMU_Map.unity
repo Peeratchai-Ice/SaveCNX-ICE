@@ -1889,9 +1889,9 @@ MonoBehaviour:
   star1_Yellow: {fileID: 1752640470}
   star2_Yellow: {fileID: 1719822276}
   star3_Yellow: {fileID: 1413783289}
-  targetTimeMinutes: 60
-  targetCarbonGrams: 0
-  targetDistanceKm: 999
+  targetTimeMinutes: 61
+  targetCarbonGrams: 200
+  targetDistanceKm: 15
 --- !u!114 &683879202
 MonoBehaviour:
   m_ObjectHideFlags: 0

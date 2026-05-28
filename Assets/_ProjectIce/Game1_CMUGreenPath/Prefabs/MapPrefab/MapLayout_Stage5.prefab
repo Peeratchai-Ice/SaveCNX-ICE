@@ -434,6 +434,10 @@ PrefabInstance:
       value: Node_ClockTower
       objectReference: {fileID: 0}
     - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
+      propertyPath: buildingName
+      value: "\u0E2B\u0E2D\u0E19\u0E32\u0E2C\u0E34\u0E01\u0E32"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383493648570289701, guid: bdeb6e31284d11e46a5172825e81c4cb, type: 3}
       propertyPath: connectedPaths.Array.size
       value: 3
       objectReference: {fileID: 0}
