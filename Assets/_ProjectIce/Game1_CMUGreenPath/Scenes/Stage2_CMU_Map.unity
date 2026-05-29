@@ -274,7 +274,7 @@ PrefabInstance:
     - target: {fileID: 5453687705279719079, guid: d39af7014d46e4544a409ec735dbcb69, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1657821726}
+      objectReference: {fileID: 0}
     - target: {fileID: 5453687705279719079, guid: d39af7014d46e4544a409ec735dbcb69, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -335,10 +335,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1944483127621223661, guid: d39af7014d46e4544a409ec735dbcb69, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1885242900}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 27616952981590822, guid: d39af7014d46e4544a409ec735dbcb69, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1657821726}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39af7014d46e4544a409ec735dbcb69, type: 3}
 --- !u!1 &20098677
 GameObject:
@@ -399,8 +396,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Replay
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4cad03f1258794b47a596bd4a1869401, type: 2}
+  m_sharedMaterial: {fileID: 2557249322196596568, guid: 4cad03f1258794b47a596bd4a1869401, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -424,10 +421,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 46.85
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -662,6 +659,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 292d577fea6a30c4db1e45b681705e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PathRunner
+--- !u!82 &36174340
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36174338}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &41787153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,8 +1365,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -805.99963, y: -276.15466}
-  m_SizeDelta: {x: 173.7622, y: 137.9046}
+  m_AnchoredPosition: {x: -805.89, y: -318}
+  m_SizeDelta: {x: 180, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &350764658
 MonoBehaviour:
@@ -2200,6 +2294,8 @@ GameObject:
   - component: {fileID: 683879208}
   - component: {fileID: 683879209}
   - component: {fileID: 683879210}
+  - component: {fileID: 683879212}
+  - component: {fileID: 683879211}
   m_Layer: 0
   m_Name: _Managers
   m_TagString: Untagged
@@ -2219,6 +2315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617221b9aea46b542b006fb3a4cedeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RouteEvaluator
+  currentStageIndex: 2
   resultPanel: {fileID: 1885242899}
   nextStageButton: {fileID: 41787153}
   resultBackgroundImage: {fileID: 1885242901}
@@ -2237,7 +2334,7 @@ MonoBehaviour:
   star2_Yellow: {fileID: 1090076751}
   star3_Yellow: {fileID: 2086401121}
   targetTimeMinutes: 26
-  targetCarbonGrams: 101
+  targetCarbonGrams: 130
   targetDistanceKm: 5
 --- !u!114 &683879202
 MonoBehaviour:
@@ -2342,7 +2439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f68f0e91075244cbbf94e2f50035ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelNavigation
-  selectStageSceneName: SelectStage
+  selectStageSceneName: StageSelection
   nextStageSceneName: Stage3_CMU_Map
 --- !u!114 &683879209
 MonoBehaviour:
@@ -2374,6 +2471,122 @@ MonoBehaviour:
   page1: {fileID: 1717684352}
   page2: {fileID: 1512781407}
   timerPanel: {fileID: 1335882148}
+--- !u!82 &683879211
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683879199}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: b36d89a3264144f10b185c974211878d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &683879212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683879199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc0dd7afe1ccec43938b6d3ab8df7b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanningUI
+  pathRunner: {fileID: 36174339}
+  goButton: {fileID: 1009333659}
+  totalStatsText: {fileID: 1154932083}
+  sfxAudioSource: {fileID: 683879211}
+  clickNodeSound: {fileID: 8300000, guid: 9f8fcf27684e24e858a3a4c73b103ffd, type: 3}
+  clickGoSound: {fileID: 8300000, guid: 9f8fcf27684e24e858a3a4c73b103ffd, type: 3}
+  undoSound: {fileID: 8300000, guid: 9f8fcf27684e24e858a3a4c73b103ffd, type: 3}
 --- !u!1 &704041654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2987,6 +3200,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 786962829433729734, guid: 695258b55290f3f4e8394257d4fe903f, type: 3}
+      propertyPath: moveSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 91ef9495a2a0a4716bcc6b2d198fd700, type: 3}
+    - target: {fileID: 786962829433729734, guid: 695258b55290f3f4e8394257d4fe903f, type: 3}
+      propertyPath: constantMoveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 786962829433729734, guid: 695258b55290f3f4e8394257d4fe903f, type: 3}
+      propertyPath: movementAudioSource
+      value: 
+      objectReference: {fileID: 36174340}
+    - target: {fileID: 786962829433729734, guid: 695258b55290f3f4e8394257d4fe903f, type: 3}
+      propertyPath: overridePathColor.b
+      value: 0.5450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 786962829433729734, guid: 695258b55290f3f4e8394257d4fe903f, type: 3}
+      propertyPath: overridePathColor.r
+      value: 0.5450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 786962829433729734, guid: 695258b55290f3f4e8394257d4fe903f, type: 3}
       propertyPath: plannedRoute.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -3233,7 +3466,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4824199689972055271, guid: 695258b55290f3f4e8394257d4fe903f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 36174340}
   m_SourcePrefab: {fileID: 100100000, guid: 695258b55290f3f4e8394257d4fe903f, type: 3}
 --- !u!1 &839167552
 GameObject:
@@ -4810,8 +5046,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back to Select Stage
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4cad03f1258794b47a596bd4a1869401, type: 2}
+  m_sharedMaterial: {fileID: 2557249322196596568, guid: 4cad03f1258794b47a596bd4a1869401, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4835,10 +5071,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 41.7
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -4971,7 +5207,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 683879208}
         m_TargetAssemblyTypeName: LevelNavigation, Assembly-CSharp
         m_MethodName: GoBackToSelectStage
         m_Mode: 1
@@ -5159,8 +5395,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4cad03f1258794b47a596bd4a1869401, type: 2}
+  m_sharedMaterial: {fileID: 2557249322196596568, guid: 4cad03f1258794b47a596bd4a1869401, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5184,8 +5420,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5374,26 +5610,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619184809}
   m_CullTransparentMesh: 1
---- !u!1 &1657821722 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 27616952981590822, guid: d39af7014d46e4544a409ec735dbcb69, type: 3}
-  m_PrefabInstance: {fileID: 2855603}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1657821726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657821722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbc0dd7afe1ccec43938b6d3ab8df7b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanningUI
-  pathRunner: {fileID: 36174339}
-  goButton: {fileID: 1009333659}
-  totalStatsText: {fileID: 1154932083}
 --- !u!1 &1708983995
 GameObject:
   m_ObjectHideFlags: 0

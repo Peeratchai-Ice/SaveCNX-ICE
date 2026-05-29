@@ -8,10 +8,13 @@ public class RouteEvaluator : MonoBehaviour
 {
     public static RouteEvaluator Instance;
 
+    // ✨ 1. เพิ่มตัวแปรสำหรับระบุว่านี่คือด่านที่เท่าไหร่ (เพื่อเซฟเกมให้ถูกช่อง)
+    [Header("Stage Progression (ระบบเซฟด่าน)")]
+    [Tooltip("ระบุหมายเลขด่าน: 1, 2, 3, 4, 5")]
+    public int currentStageIndex = 1; 
+
     [Header("UI Objects")]
     public GameObject resultPanel;         
-
-    [Header("Navigation UI")]
     public GameObject nextStageButton;
 
     [Header("Result Screen Backgrounds")]
@@ -101,7 +104,6 @@ public class RouteEvaluator : MonoBehaviour
         }
         else
         {
-            // ✨ อัปเกรดความฉลาด AI ให้รู้จักเปรียบเทียบระยะทางด้วย!
             allPossibleRoutes.Sort((routeA, routeB) => 
             {
                 float cA = 0, tA = 0, dA = 0;
@@ -110,13 +112,8 @@ public class RouteEvaluator : MonoBehaviour
                 float cB = 0, tB = 0, dB = 0;
                 foreach(var p in routeB) { cB += p.carbonGrams; tB += p.timeMinutes; dB += p.distanceKm; }
 
-                // กฎข้อ 1: คาร์บอนน้อยกว่า ชนะ
                 if (Mathf.Abs(cA - cB) > 0.001f) return cA.CompareTo(cB); 
-                
-                // กฎข้อ 2: ถ้าคาร์บอนเท่ากัน ให้เวลาเร็วกว่า ชนะ
                 if (Mathf.Abs(tA - tB) > 0.001f) return tA.CompareTo(tB);
-
-                // ✨ กฎข้อ 3: ถ้าเวลาเท่ากันอีก ให้ระยะทางสั้นกว่า ชนะ!
                 return dA.CompareTo(dB);
             });
 
@@ -169,12 +166,54 @@ public class RouteEvaluator : MonoBehaviour
             penaltyMessage += $"* ระยะทางเกิน (ห้ามเกิน {targetDistanceKm} กม.)\n";
         }
 
+        bool earnStar2 = playerTotalTime <= targetTimeMinutes;
+        bool earnStar3 = playerTotalCarbon <= targetCarbonGrams;
+
         if (star1_Yellow != null) star1_Yellow.SetActive(earnStar1);
-        if (star2_Yellow != null) star2_Yellow.SetActive(playerTotalTime <= targetTimeMinutes);
-        if (star3_Yellow != null) star3_Yellow.SetActive(playerTotalCarbon <= targetCarbonGrams);
+        if (star2_Yellow != null) star2_Yellow.SetActive(earnStar2);
+        if (star3_Yellow != null) star3_Yellow.SetActive(earnStar3);
+
+        // ✨ 2. ระบบเซฟข้อมูลส่งไปให้หน้า Stage Selection ของเพื่อน!
+        int totalStars = 0;
+        if (earnStar1) totalStars++;
+        if (earnStar2) totalStars++;
+        if (earnStar3) totalStars++;
+
+        if (earnStar1) // ถ้าเป้าหมายสำเร็จ (เข้าเส้นชัยได้ ไม่ตาย ไม่พลาดจุดแวะ)
+        {
+            // โค้ดเพื่อนใช้ Index 0 สำหรับด่าน 1
+            int friendStageIndex = currentStageIndex - 1; 
+
+            // เซฟดาวสูงสุดที่ทำได้ (เซฟเสมอแม้ได้ 1 หรือ 2 ดาว เพื่อให้อัปเดตหน้าเมนู)
+            string starKey = "Stage_" + friendStageIndex + "_Stars";
+            int oldStars = PlayerPrefs.GetInt(starKey, 0);
+            
+            Debug.Log($"[SaveSystem] กำลังเซฟด่านที่: {currentStageIndex} | ดาวที่ได้: {totalStars} | ดาวเดิมที่มี: {oldStars}");
+
+            if (totalStars > oldStars)
+            {
+                PlayerPrefs.SetInt(starKey, totalStars);
+                Debug.Log($"✅ [SaveSystem] อัปเดตดาวสำเร็จ! เซฟ {totalStars} ดาว ลงในด่าน {currentStageIndex}");
+            }
+
+            // ✨ สั่งปลดล็อกด่านถัดไป "เฉพาะตอนที่ได้ 3 ดาวเป๊ะๆ"
+            if (totalStars == 3)
+            {
+                string unlockKey = "Stage_" + friendStageIndex + "_Unlocked";
+                PlayerPrefs.SetInt(unlockKey, 1);
+                Debug.Log($"🔓 [SaveSystem] ได้ 3 ดาว! ปลดล็อกด่านถัดไปสำเร็จ!");
+            }
+            
+            PlayerPrefs.Save();
+        }
 
         if (resultPanel != null) resultPanel.SetActive(true);
-        if (nextStageButton != null) nextStageButton.SetActive(true);
+        
+        // ✨ แก้ไขปุ่ม Next Stage ให้โชว์เฉพาะตอนที่ได้ครบ 3 ดาวเท่านั้น!
+        if (nextStageButton != null) 
+        {
+            nextStageButton.SetActive(totalStars == 3);
+        }
 
         if (playerTimeText != null) playerTimeText.text = playerTotalTime.ToString("0.##");
         if (playerDistText != null) playerDistText.text = playerTotalDistance.ToString("0.##");

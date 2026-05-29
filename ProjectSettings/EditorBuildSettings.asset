@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_ProjectIce/Game1_CMUGreenPath/Scenes/MainMenu.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/_ProjectIce/Game1_CMUGreenPath/Scenes/StoryScene.unity
+    guid: 3e987e31a2f1948c4b8e013bb8317dd2
+  - enabled: 1
+    path: Assets/_ProjectIce/Game1_CMUGreenPath/Scenes/StageSelection.unity
+    guid: f0a7ab31cd7674f338322663f74408f9
+  - enabled: 1
     path: Assets/_ProjectIce/Game1_CMUGreenPath/Scenes/Stage1_CMU_Map.unity
     guid: 4897453c1832a3b489b8c78624a2dc01
   - enabled: 1
@@ -20,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_ProjectIce/Game1_CMUGreenPath/Scenes/Stage5_CMU_Map.unity
     guid: 1af26c2c9e1a1ab49ab73f80f9d55a72
+  - enabled: 1
+    path: Assets/_ProjectIce/Game1_CMUGreenPath/Scenes/RewardScene.unity
+    guid: fe85a16d1e30eaf40a1fab633d25b816
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

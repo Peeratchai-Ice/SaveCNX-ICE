@@ -7,6 +7,13 @@ public class PlanningUI : MonoBehaviour
     public GameObject goButton; 
     public TextMeshProUGUI totalStatsText; 
 
+    // ✨ [เพิ่มใหม่] ช่องสำหรับใส่เสียง
+    [Header("Audio Setup (ระบบเสียง)")]
+    public AudioSource sfxAudioSource; 
+    public AudioClip clickNodeSound;   // เสียงตอนคลิกเลือกจุดสำเร็จ
+    public AudioClip clickGoSound;     // เสียงตอนกดปุ่ม GO
+    public AudioClip undoSound;        // เสียงตอนคลิกขวายกเลิก
+
     private BuildingNode currentNode;
 
     void Start()
@@ -40,7 +47,7 @@ public class PlanningUI : MonoBehaviour
                     {
                         string vehicleColorHex = ColorUtility.ToHtmlStringRGB(path.pathColor);
                         
-                        // ✨ แก้กลับเป็น "นาที"
+                        // ✨ แก้กลับเป็น "นาที" ตามโค้ดดั้งเดิมของคุณ
                         TooltipManager.Instance.ShowTooltip(
                             $"มุ่งหน้าไป: <color=#FFD166><b>{hoveredNode.buildingName}</b></color>\n" +
                             $"<size=90%>พาหนะ: <color=#{vehicleColorHex}><b>{path.vehicleName}</b></color>\n" +
@@ -88,6 +95,9 @@ public class PlanningUI : MonoBehaviour
 
         if (validPath == null) return; 
 
+        // ✨ [เล่นเสียง] เมื่อคลิกเลือกเส้นทางสำเร็จ
+        PlaySound(clickNodeSound);
+
         pathRunner.AddSegmentToPlan(validPath);
         currentNode = targetNode; 
 
@@ -101,6 +111,9 @@ public class PlanningUI : MonoBehaviour
     {
         if (pathRunner.plannedRoute.Count > 0)
         {
+            // ✨ [เล่นเสียง] เมื่อกดยกเลิกเส้นทาง
+            PlaySound(undoSound);
+
             currentNode = pathRunner.UndoLastSegment();
 
             if (currentNode.nodeRole != BuildingNode.NodeRole.EndNode && goButton != null) 
@@ -131,7 +144,7 @@ public class PlanningUI : MonoBehaviour
             totalDist += path.distanceKm;
         }
 
-        // ✨ แก้กลับเป็น "นาที"
+        // ✨ แก้กลับเป็น "นาที" ตามโค้ดดั้งเดิมของคุณ
         totalStatsText.text = $"ผ่านจุดแวะ: <b>{stepCount}</b> จุด\n" +
                               $"รวมระยะทาง: <b>{totalDist:F1}</b> กม.\n" +
                               $"เวลารวม: <b>{totalTime}</b> นาที\n" +
@@ -140,7 +153,19 @@ public class PlanningUI : MonoBehaviour
 
     public void OnClickGo()
     {
+        // ✨ [เล่นเสียง] เมื่อกดปุ่ม GO
+        PlaySound(clickGoSound);
+
         if(goButton != null) goButton.SetActive(false);
         pathRunner.ExecutePlan();
+    }
+
+    // ✨ [ฟังก์ชันตัวช่วย] สำหรับเล่นเสียงโดยเฉพาะ
+    private void PlaySound(AudioClip clip)
+    {
+        if (sfxAudioSource != null && clip != null)
+        {
+            sfxAudioSource.PlayOneShot(clip);
+        }
     }
 }

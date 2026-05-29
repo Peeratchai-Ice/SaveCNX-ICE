@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems; // ✨ 1. เพิ่มบรรทัดนี้เพื่อให้รู้จักระบบ UI
 
 [System.Serializable]
 public class PathData
@@ -18,7 +19,6 @@ public class PathData
 
 public class BuildingNode : MonoBehaviour
 {
-    // ✨ 1. เพิ่ม PickupNode เข้าไปในระบบ
     public enum NodeRole { Normal, StartNode, EndNode, DeathNode, PickupNode }
 
     [Header("Node Info")]
@@ -31,9 +31,8 @@ public class BuildingNode : MonoBehaviour
     [TextArea]
     public string deathReason = "คุณพยายามว่ายน้ำข้ามอ่างแก้ว... จมน้ำตาย!"; 
 
-    // ✨ 2. การตั้งค่าสำหรับจุดรับเพื่อน
     [Header("Pickup Node Settings")]
-    public GameObject friendGameObject; // ลากตัวละครเพื่อนใน Hierarchy มาใส่ช่องนี้
+    public GameObject friendGameObject; 
     [TextArea]
     public string missingFriendReason = "คุณลืมแวะรับเพื่อนไปโรงพยาบาลด้วย!"; 
 
@@ -59,6 +58,12 @@ public class BuildingNode : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        // ✨ 2. ดักไว้! ถ้าเมาส์ชี้อยู่บน UI ห้ามให้ตึกขยายตัวเด็ดขาด
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        {
+            return; 
+        }
+
         transform.localScale = originalScale * hoverScaleMultiplier;
     }
 
@@ -74,7 +79,7 @@ public class BuildingNode : MonoBehaviour
             case NodeRole.StartNode: Gizmos.color = Color.yellow; break;
             case NodeRole.EndNode: Gizmos.color = Color.green; break;
             case NodeRole.DeathNode: Gizmos.color = Color.red; break; 
-            case NodeRole.PickupNode: Gizmos.color = Color.magenta; break; // ✨ จุดรับเพื่อนสีชมพูบานเย็น!
+            case NodeRole.PickupNode: Gizmos.color = Color.magenta; break; 
             default: Gizmos.color = Color.cyan; break;
         }
 
